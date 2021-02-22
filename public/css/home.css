@@ -1,0 +1,117 @@
+.dropdown>.btn {
+    padding: 0;
+    color: #00b3ee;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+    left: 205px;
+    top: -10px;
+}
+
+.dropdown>.dropdown-menu>a:hover {
+    color: red;
+}
+
+.dropdown-menu>a {
+    color: #444;
+}
+
+.opt-hover:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.opt-hover {
+    border-bottom: 1px solid silver;
+    height: 25px;
+    vertical-align: middle;
+    padding: 10px;
+    color: rgb(0, 75, 145);
+}
+
+.submit {
+    background: url("../images/site/form-title-bg.png");
+    color: white;
+    padding: 5px 25px;
+    border-radius: 5px;
+}
+
+
+.right-sidebar {
+    padding: 17px;
+}
+
+.hienthi-sanpham {
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 3px solid white;
+}
+.hienthi-sanpham>.hethang {
+    position: absolute;
+    top: 50%;
+}
+
+.hienthi-sanpham>.add-to-cart {
+    position: absolute;
+    top: 75%;
+    display: none;
+}
+
+.hienthi-sanpham:hover>.add-to-cart {
+    display: block;
+}
+
+.add-to-cart:hover> .btn {
+    background: #00b3ee !important;
+}
+
+.hienthi-sanpham:hover {
+    box-shadow: rgb(0 0 0) 0 0 20px;
+    z-index: 400;
+}
+
+.hienthi-sanpham>div>a>img {
+    width: 130px;
+    height: 130px;
+    transition: transform 1s ease;
+}
+
+.hienthi-sanpham>div>a:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.prefix-sanpham>img {
+    /*width: 870px;*/
+}
+
+.ten-sanpham {
+    height: 42px;
+}
+
+.giagiam-sanpham {
+    font-size: 10px;
+    text-decoration: line-through;
+}
+
+.gia-sanpham {
+    color: red;
+    font-weight: bolder;
+    text-align: right;
+}
+
+.phamtram-giamgia {
+    display: inline-block;
+    background: red;
+    margin-left: 10px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.sanpham-tieude>a {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+}

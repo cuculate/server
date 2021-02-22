@@ -1,0 +1,269 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+    color: #333333;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container-fluid {
+    border-bottom: 2px solid rgba(227, 227, 227, 0.8);
+    background: #f8f9fa !important;
+}
+
+.header {
+    background: #F6F6F6;
+    width: 1270px;
+    height: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header > form {
+}
+
+.header > form > input {
+    height: 40px;
+    width: 600px !important;
+}
+
+.main {
+    width: 1270px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.user {
+    margin-top: auto;
+    position: relative;
+}
+
+.user > .dropdown-menu {
+    width: 280px;
+    position: absolute;
+    left: -50px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.user > .dropdown-menu > a {
+    width: 250px;
+    height: 41px;
+    background: rgb(253, 216, 53);
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+
+}
+
+.user > .dropdown-menu > .facebook > span {
+    color: rgb(59, 89, 152);
+}
+
+.user > .dropdown-menu > .instagram > span {
+    color: red;
+}
+
+.user > .dropdown-menu > .twitter > span {
+    color: #00b3ee;
+}
+
+.user:hover > .dropdown-menu {
+    display: block;
+    right: 400px;
+}
+
+.login {
+    margin-right: 30px;
+}
+
+.login a {
+    padding: 5px;
+    color: #333333;
+    margin-top: 15px;
+}
+
+.logo {
+    background: white;
+    padding: 15px 10px 0 10px;
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px -2px 3px rgb(227, 227, 227);
+}
+
+.main {
+    margin: 0px auto;
+    background: white url(../images/site/bg.png) no-repeat;
+    background-size: 100%;
+    box-shadow: 0px 0px 7px rgb(204, 204, 204);
+}
+
+.container-fluid > nav {
+    background: url("../images/site/nav-bg.png") no-repeat;
+    background-size: 100% 71px;
+    padding: 18px 25px;
+}
+
+.banner-top > a > img {
+    padding: 30px 0 0 30px;
+}
+
+.search {
+    border: 1px solid #777777;
+    border-radius: 10px;
+    height: 33px;
+    background: white;
+}
+
+.search > input {
+    border: none;
+    padding: 0;
+    height: 25px;
+    margin-top: 5px;
+}
+
+.search > button > i {
+    margin-bottom: 10px;
+}
+
+.user:hover > .dropdown-menu {
+    display: block;
+    top: 30px;
+}
+
+.cart-detail > .cart-hover {
+    background: white;
+    display: none;
+    position: absolute;
+    z-index: 2000;
+    border-radius: 5px;
+}
+
+.cart-detail:hover > .cart-hover {
+    display: block;
+}
+
+.cart-hover > div > div > table > tbody > tr > td > img {
+    height: 70px;
+    width: 70px;
+}
+
+.footer {
+    background: #414141 url("../images/site/footer-bg.png") repeat-x;
+}
+
+.footer-title > h4 {
+    color: rgb(248, 201, 120);
+    font-size: 25px;
+    margin: 20px 5px 10px 5px;
+    padding-left: 50px;
+}
+
+.footer-title > ul > li {
+    color: rgb(187, 187, 187);
+    margin: 5px;
+    padding-left: 50px;
+}
+
+.footer-title > ul > li > a {
+    color: rgb(187, 187, 187);
+}
+
+.contact > button {
+    position: absolute;
+    bottom: 400px;
+}
+
+#contact {
+    background: url("../images/contact/envelope.png");
+    width: 585px;
+    height: 322px;
+    position: absolute;
+    bottom: 400px;
+    z-index: 4;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#contact > button {
+    position: absolute;
+    bottom: 275px;
+    right: 590px;
+}
+
+#contact > h2 {
+    margin: 20px 75px 20px 30px !important;
+}
+
+#contact > form {
+    margin: 20px 75px 20px 30px;
+}
+
+#contact > form > input {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#contact > form > textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 450px;
+    height: 80px;
+}
+
+#contact > form > button {
+    margin-left: 390px;
+}
+
+.support > .dropup {
+    height: 25px;
+}
+
+.support > .dropup > button {
+    right: 10px;
+}
+
+.support > .dropup > .dropdown-menu {
+    padding-top: 0px;
+}
+
+.support > .dropup > .dropdown-menu > table {
+    border: 1px double linen;
+}
+
+.alertify-notifier {
+    bottom: 40px !important;
+}

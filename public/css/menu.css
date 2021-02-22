@@ -1,0 +1,88 @@
+.menu {
+    border: 1px solid #777777;
+    border-radius: 5px;
+    background: #56cfe1;
+}
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: #333132;
+    transition: all 0.15s ease-in;
+}
+
+.sidebar-text {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: whitesmoke !important;
+    text-shadow: 1px 1px 1px #777777;
+}
+
+.sidebar-text:hover {
+    color: whitesmoke;
+}
+
+.sidebar {
+    padding: 15px 0 0 10px;
+    width: 220px;
+}
+
+.sidebar>.menu-title {
+    padding: 12px;
+    background: url("../images/site/LeftMenuImages.gif") repeat-y;
+    font-size: 16px;
+    color: white;
+}
+
+.sidebar>.menu-body {
+    margin: 0 3px 0 1px;
+}
+
+.title-menu {
+    padding: 10px;
+    color: black;
+    border-bottom: 1px solid #777777;
+}
+.title-menu>a {
+    font-size: 16px;
+}
+
+.menu-body>ul>li {
+    border-top: 1px solid #777777;
+    padding: 8px 0;
+}
+
+.dropdown-menu {
+    z-index: 2000;
+}
+
+.dropdown {
+    padding: 0 !important;
+}
+
+.category:hover>.category-dropdown {
+    display: block;
+}
+
+.brand:hover>.brand-dropdown {
+    display: block;
+}
+
+.age:hover>.age-dropdown {
+    display: block;
+}
+
+.adv {
+    top: 150px;
+    width: 210px ;
+}
+.adv-1 {
+    left: 100px;
+}
+.adv-2 {
+    left: 1598px;
+}
+
+.nav-link:hover {
+    background: rgba(37,37,37,0.2);
+}

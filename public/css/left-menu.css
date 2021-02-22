@@ -1,0 +1,37 @@
+.left-sidebar {
+    padding: 15px 0 0 10px;
+    width: 220px;
+}
+
+.left-sidebar>.left-menu-title {
+    padding: 12px;
+    background: url("../images/site/LeftMenuImages.gif") repeat-y;
+    font-size: 16px;
+    color: white;
+}
+
+.left-sidebar>.left-menu-body {
+    border: 1px solid #777777;
+    margin: 0 3px 0 1px;
+}
+
+.title-menu {
+    padding: 10px;
+    color: black;
+    border-bottom: 1px solid #777777;
+}
+.title-menu>a {
+    font-size: 16px;
+}
+
+.left-menu-body>ul>li {
+    border-top: 1px solid #444;
+    padding: 8px 0;
+}
+.dropdown> a {
+    color: #444;
+}
+
+.adv {
+    padding-top: 15px;
+}

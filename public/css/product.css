@@ -1,0 +1,67 @@
+.chi-tiet>div>div>img {
+    height: 340px;
+    width: 340px;
+}
+
+.price {
+    font-size: 18px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gia-sanpham {
+    font-size: 20px;
+    color: rgb(187, 0, 0);
+    text-align: right;
+}
+
+.cart {
+    background: #E5F5FF;
+}
+
+.cart>a>span {
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.tab-content {
+    border-top: 5px solid #333333;
+    border-bottom: 5px solid #333333;
+}
+
+.nav-stacked>li {
+    border: 1px solid black;
+    border-radius: 5px 5px 0 0;
+}
+
+.img-zoom-container {
+    position: relative;
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 150px;
+    height: 150px;
+}
+
+.img-zoom-result {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 600px;
+    height: 600px;
+    left: 430px;
+    top: -198px;
+    visibility: hidden;
+    border: 1px solid #00b3ee;
+}
+
+.img-zoom-container:hover>.img-zoom-result {
+    visibility: visible;
+    z-index: 200;
+}
