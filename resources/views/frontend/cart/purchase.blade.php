@@ -9,7 +9,6 @@
 @section('main')
     <div>
         <h1 class="m-5">Thông tin đơn hàng</h1>
-        <br>
         <form class="row m-3" action="{{ route('order', Session::get('User')->id) }}" method="post">
             @csrf
 

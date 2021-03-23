@@ -64,7 +64,7 @@
                         <div class="m-2">
                             <img src="images/ico/icon-phone.png" alt="phone">
                             Xem
-                            <a href="{{ route('huong-dan') }}" class="text-success">hướng dẫn</a>
+                            <a href="{{ route('post','huong-dan') }}" class="text-success">hướng dẫn</a>
                             mua hàng
                         </div>
                     </div>

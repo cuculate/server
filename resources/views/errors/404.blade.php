@@ -1,4 +1,4 @@
-@extends('frontend.base.base')
+@extends('errors.base.base')
 
 @section('title','404 Error Page')
 

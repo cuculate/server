@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light p-0">
-    <a class="navbar-brand sidebar-text pl-2" href="{{ route('home') }}">Trang chủ</a>
+    <a class="navbar-brand sidebar-text pl-4"  style="font-size: 14px !important;" href="{{ route('home') }}">Trang chủ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>

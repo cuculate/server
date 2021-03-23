@@ -6,7 +6,10 @@ use App\Http\Requests\Frontend\Order\StoreRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Notifications\OrderStatus;
+use App\Repos\AgeRepo;
 use App\Repos\AreaRepo;
+use App\Repos\BrandRepo;
+use App\Repos\CategoryRepo;
 use App\Repos\OrderRepo;
 use App\Repos\PaymentRepo;
 use App\Repos\ProductRepo;
@@ -21,11 +24,17 @@ class CartController extends BaseController
     private $area;
     private $payment;
     private $order;
+    private $brand;
+    private $age;
+    private $category;
 
     public function __construct(ProductRepo $product,
                                 AreaRepo $area,
                                 PaymentRepo $payment,
-                                OrderRepo $order)
+                                OrderRepo $order,
+                                BrandRepo $brand,
+                                AgeRepo $age,
+                                CategoryRepo $category)
     {
         parent::__construct();
 
@@ -33,12 +42,18 @@ class CartController extends BaseController
         $this->area = $area;
         $this->payment = $payment;
         $this->order = $order;
+        $this->brand = $brand;
+        $this->age = $age;
+        $this->category = $category;
     }
 
     public function Index()
     {
         try {
-            return view('frontend.cart.cart');
+            $categories = $this->category->getSelectParent();
+            $brands = $this->brand->getSelectBrand();
+            $ages = $this->age->getSelectAge();
+            return view('frontend.cart.cart', compact('brands','categories','ages'));
         } catch (\Exception $ex) {
             return abort(500);
         }
@@ -102,9 +117,12 @@ class CartController extends BaseController
     public function Purchase()
     {
         try {
+            $categories = $this->category->getSelectParent();
+            $brands = $this->brand->getSelectBrand();
+            $ages = $this->age->getSelectAge();
             $areas = $this->area->getSelectArea();
             $payments = $this->payment->getSelectPay();
-            return view('frontend.cart.purchase', compact('areas', 'payments'));
+            return view('frontend.cart.purchase', compact('areas', 'payments','categories','brands','ages'));
         } catch (\Exception $ex) {
             return abort(500);
         }
@@ -120,12 +138,12 @@ class CartController extends BaseController
             $product->solded += $cart['quanty'];
             $product->save();
             $order->orderDetail()->attach($cart['productInfo']->id, [
-                'quantity' => $cart['quanty'],
-                'total_price'   => $cart['price']]);
+                'quantity'    => $cart['quanty'],
+                'total_price' => $cart['price']]);
         }
         $order->status = 1;
         $customer = $order->customer;
-        Notification::route('mail', $customer->email)->notify(new OrderStatus($order,$customer));
+        Notification::route('mail', $customer->email)->notify(new OrderStatus($order, $customer));
         $request->session()->forget("Cart");
 
         return redirect()->route('order-show', $order->id)->with('success', 'Đặt hàng thành công');

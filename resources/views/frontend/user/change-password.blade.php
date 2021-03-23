@@ -6,7 +6,7 @@
     <div class="main-body d-flex m-3">
         <div class="link-dinhhuong">
             <a href="{{route('home')}}">Trang chủ </a> &gt;
-            <a href="{{route('profile', $user->khID)}}">Trang cá nhân </a> >
+            <a href="{{route('profile', $user->id)}}">Trang cá nhân </a> >
             <label style="color:#777777">Thay đổi mật khẩu</label>
         </div>
     </div>
@@ -18,15 +18,15 @@
                         <div class="col-md-12">
                             <ul class="nav navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('profile', $user->khID) }}">
+                                    <a class="nav-link" href="{{ route('profile', $user->id) }}">
                                         <h4>Thông tin tài khoản</h4>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('edit-profile', $user->khID) }}">Cập nhật thông tin</a>
+                                    <a class="nav-link" href="{{ route('edit-profile', $user->id) }}">Cập nhật thông tin</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{ route('change-password', $user->khID) }}">Thay đổi mật khẩu</a>
+                                    <a class="nav-link active" href="{{ route('change-password', $user->id) }}">Thay đổi mật khẩu</a>
                                 </li>
                             </ul>
                         </div>
@@ -34,26 +34,26 @@
                     <div class="row">
                         <div class="col-md-10 offset-1">
                             @include('frontend.base.message')
-                            <form method="post" action="{{ route('update-password', $user->khID) }}">
+                            <form method="post" action="{{ route('update-password', $user->id) }}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="old-mkKh" class="col-2 offset-1 col-form-label">Mật khẩu cũ</label>
                                     <div class="col-5">
-                                        <input id="old-mkKh" name="old-mkKh" class="form-control here"
+                                        <input id="old-mkKh" name="old-password" class="form-control here"
                                                type="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="mkKh" class="col-2 offset-1 col-form-label">Mật khẩu mới</label>
                                     <div class="col-5">
-                                        <input id="mkKh" name="mkKh" class="form-control here" type="password">
+                                        <input id="mkKh" name="password" class="form-control here" type="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="re-mkKh" class="col-2 offset-1 col-form-label">Xác nhận lại mật khẩu
                                         mới </label>
                                     <div class="col-5">
-                                        <input id="re-mkKh" name="re-mkKh" class="form-control here"
+                                        <input id="re-mkKh" name="re-password" class="form-control here"
                                                type="password">
                                     </div>
                                 </div>

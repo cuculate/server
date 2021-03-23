@@ -15,7 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <ul class="nav navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="{{ route('profile', Session::get('User')->id) }}">

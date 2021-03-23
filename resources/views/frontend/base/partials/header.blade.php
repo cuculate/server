@@ -11,7 +11,7 @@
             </button>
         </form>
         <div class=" login">
-            <ul class="nav">
+            <ul class="nav mt-2">
                 @include('frontend.base.partials.user')
                 <li class="nav-item cart-detail">
                     <a class="nav-link" href="{{ route('cart') }}">

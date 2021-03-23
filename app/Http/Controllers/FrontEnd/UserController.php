@@ -114,24 +114,23 @@ class UserController extends BaseController
 
     public function UpdatePassword(ChangePasswordRequest $request, $id)
     {
-        try {
             $user = $this->customer->findNotDelete($id);
+            $categories = $this->category->getSelectParent();
+            $brands = $this->brand->getSelectBrand();
+            $ages = $this->age->getSelectAge();
             if (!$this->customer->findNotDelete($id)) {
                 return abort(404);
             }
-            if (Hash::check($request->data()['old-mkKh'], $user->mkKh)) {
-                if ($request->data()['re-mkKh'] === $request->data()['mkKh']) {
-                    $password = Hash::make($request->data()['mkKh']);
-                    $this->customer->update(['mkKh' => $password], $id);
+            if (Hash::check($request->data()['old-password'], $user->password)) {
+                if ($request->data()['re-password'] === $request->data()['password']) {
+                    $password = Hash::make($request->data()['password']);
+                    $this->customer->update(['password' => $password], $id);
                     return redirect()->route('profile', $id)->with('success', 'Cập nhật thành công');
                 }
                 return back()->with('error', 'Mật khẩu mới không trùng khớp!');
             } else {
                 return back()->with('error', 'Mật khẩu sai!');
             }
-        } catch (\Exception $ex) {
-            return abort(500);
-        }
     }
 
     public function ForgotPassword()
