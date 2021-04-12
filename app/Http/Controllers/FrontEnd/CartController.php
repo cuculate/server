@@ -50,10 +50,8 @@ class CartController extends BaseController
     public function Index()
     {
         try {
-            $categories = $this->category->getSelectParent();
-            $brands = $this->brand->getSelectBrand();
-            $ages = $this->age->getSelectAge();
-            return view('frontend.cart.cart', compact('brands','categories','ages'));
+            $productRandoms = $this->product->random(15);
+            return view('frontend.cart.cart', compact('productRandoms'));
         } catch (\Exception $ex) {
             return abort(500);
         }
@@ -146,7 +144,7 @@ class CartController extends BaseController
         Notification::route('mail', $customer->email)->notify(new OrderStatus($order, $customer));
         $request->session()->forget("Cart");
 
-        return redirect()->route('order-show', $order->id)->with('success', 'Đặt hàng thành công');
+        return view('frontend.cart.thankyou');
     }
 }
 

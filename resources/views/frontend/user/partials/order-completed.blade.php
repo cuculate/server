@@ -1,4 +1,4 @@
-<div id="done" class="container tab-pane fade"><br>
+<div id="done" class="tab-content-item"><br>
     <h3>Hoàn thành</h3>
     <table class="table">
         <thead>

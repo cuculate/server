@@ -1,36 +1,21 @@
-<div class="user">
-    <span type="button" class="btn btn-default dropdown-toggle">
-        <i class='fas fa-user-alt'></i>
-        @if ( Session::has("User") == null)
-            <span>Tài khoản</span>
+<div class="topbar-menu right-menu">
+    <ul>
+        @if(Session::has('User') == null)
+            <li class="menu-item"><a title="Register or Login" href="{{ route('login') }}">Đăng
+                    nhập</a>
+            </li>
+            <li class="menu-item"><a title="Register or Login" href="{{ route('register') }}">Đăng
+                    ký</a>
+            </li>
         @else
-            <span>{{ Session::get('User')->name }}</span>
+            <li class="menu-item menu-item-has-children parent" >
+                <a title="My Account" href="{{route('profile', Session::get('User')->id)}}">{{ Session::get('User')->name }}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="submenu curency" >
+                    <li class="menu-item"><a href="{{ route('list-order', Session::get('User')->id) }}">ĐƠn hàng</a></li>
+                    <li class="menu-item"><a href="{{ route('profile', Session::get('User')->id) }}">Tài khoản</a></li>
+                    <li class="menu-item" ><a title="Logout" href="{{ route('logout') }}">Đăng xuất</a></li>
+                </ul>
+            </li>
         @endif
-    </span>
-    <div class="dropdown-menu">
-        @if ( Session::has("User") == null)
-            <a class="btn btn-warning nav-link text-center" href="{{ route('register') }}">Đăng ký</a>
-            <a class="btn btn-warning nav-link text-center" href="{{ route('login') }}">Đăng nhập</a>
-            <a class="btn nav-link text-left d-flex facebook bg-light" href="{{ route('login') }}">
-                <i class="fab fa-facebook social-share-icon pr-2"
-                   style="color: rgb(59, 89, 152); font-size:30px; border-right: 1px solid grey; width: 36px"></i>
-                <span class="social-share-text align-self-center pl-4">Đăng nhập bằng Facebook</span>
-            </a>
-            <a class="btn nav-link text-left d-flex instagram bg-light" href="{{ route('login') }}">
-                <i class="fab fa-instagram social-share-icon pr-2"
-                   style="color: red; font-size:30px; border-right: 1px solid grey; width: 36px"></i>
-                <span class="social-share-text align-self-center pl-4">Đăng nhập bằng Instagram</span>
-            </a>
-            <a class="btn nav-link text-left d-flex twitter bg-light" href="{{ route('login') }}">
-                <i class="fab fa-twitter social-share-icon pr-2"
-                   style="color: #00b3ee; font-size:30px; border-right: 1px solid grey; width: 36px"></i>
-                <span class="social-share-text align-self-center pl-4">Đăng nhập bằng Twitter</span>
-            </a>
-        @else
-
-            <a class="btn btn-primary nav-link text-center"
-               href="{{route('profile', Session::get('User')->id)}}">{{ Session::get('User')->name }}</a>
-            <a class="btn btn-primary nav-link text-center" href="{{ route('logout') }}">Đăng xuất</a>
-        @endif
-    </div>
+    </ul>
 </div>

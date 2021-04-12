@@ -1,8 +1,6 @@
 function RenderCart(response) {
-    $("#change-item-card").empty();
-    $("#change-item-card").html(response);
-    if ($("#quanty-cart").val() == null)
-    {
+    $("#change-item-card").empty().html(response);
+    if ($("#quanty-cart").val() == null) {
         $("#quanty-cart-show").text(0);
     } else {
         $("#quanty-cart-show").text($("#quanty-cart").val());

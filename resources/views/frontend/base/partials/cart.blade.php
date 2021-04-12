@@ -1,53 +1,52 @@
-<div class="cart-hover p-3 border">
+<div class="cart-hover shopping-cart main-content-area">
     <div id="change-item-card">
         @if( Session::has("Cart") != null)
-            <div class="select-items">
-                <table class="table table-borderless border-bottom">
-                    <tbody>
-                    @foreach(Session::get("Cart")->products as $product)
-                        <tr>
-                            <td>
-                                <img src="{{ asset('./images/sanpham/'.$product['productInfo']->image)}}" alt="">
-                            </td>
-                            <td>
-                                <div class="product-selected">
-                                    @if($product['productInfo']->sale === 1)
-                                        <label
-                                            class="giagiam-sanpham">{{number_format($product['productInfo']->old_price)}}
-                                            VNĐ</label>
-                                        <div
-                                            class="phamtram-giamgia">{{100 -round(($product['productInfo']->price / $product['productInfo']->old_price)*100)}}
-                                            %
-                                        </div>
-                                    @endif
-                                    <p>{{ number_format($product['productInfo']->price) }} VNĐ
-                                        x {{$product['quanty']}}</p>
-                                    <h6>{{ $product['productInfo']->name }}</h6>
-                                </div>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-danger text-center delete-cart"
-                                        data-id="{{$product['productInfo']->id}}">X
-                                </button>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="select-total d-flex justify-content-between">
-                <span>Tổng:</span>
-                <h5 class="">{{ number_format(Session::get("Cart")->totalPrice) }} VNĐ</h5>
-                <input hidden id="quanty-cart" type="number"
-                       value="{{Session::get("Cart")->totalQuanty}}">
-            </div>
-            <div class="d-flex justify-content-between">
-                <div class="select-button">
-                    <a href="{{ route('cart') }}" class="btn btn-sm btn-outline-success">Xem giỏ hàng</a>
+            <div class="shopping-cart main-content-area">
+                <div class="wrap-iten-in-cart">
+                    <h3 class="box-title">Giỏ hàng</h3>
+                    <ul class="products-cart">
+                        @if(Session::get('Cart') != null)
+                            @foreach(Session::get("Cart")->products as $product)
+                                <li class="pr-cart-item">
+                                    <div class="product-image">
+                                        <figure><img src="{{ asset('./images/sanpham/'.$product['productInfo']->image)}}"
+                                                     alt="{{ $product['productInfo']->name }}"></figure>
+                                    </div>
+                                    <div class="product-name">
+                                        <a class="link-to-product" href="{{ route('show',$product['productInfo']->id) }}">{{ $product['productInfo']->name }}</a>
+                                    </div>
+                                    <div class="product-quantity">
+                                        <p class="quantity">x {{ $product['quanty'] }}</p>
+                                    </div>
+                                    <div class="price-field product-price">
+                                        <p class="price"
+                                           id="price-{{ $product['productInfo']->id }}"
+                                           data-price="{{ $product['productInfo']->price }}">{{ number_format($product['productInfo']->price) }}
+                                            VNĐ</p>
+                                    </div>
+                                    <div class="delete">
+                                        <button class="btn btn-delete delete-cart"
+                                                data-id="{{ $product['productInfo']->id }}">
+                                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
+                    </ul>
                 </div>
-                <div class="select-button">
-                    <a href="{{ route('purchase') }}" class="btn btn-sm btn-outline-success">Mua hàng</a>
+                <div class="select-total product-info">
+                    <span style="font-weight: bold">Tổng:</span>
+                    <div class="wrap-price">
+                        <h5 class="product-price">{{ number_format(Session::get("Cart")->totalPrice) }} VNĐ</h5>
+                    </div>
+                    <input hidden id="quanty-cart" type="number"
+                           value="{{Session::get("Cart")->totalQuanty}}">
                 </div>
+            </div>
+            <div class="cart-button">
+                <a href="{{ route('cart') }}" class="btn btn-success">Xem giỏ hàng</a>
+                <a href="{{ route('purchase') }}" class="purchase btn btn-danger">Mua hàng</a>
             </div>
         @else
             <p>Chưa có sản phẩm nào trong giỏ hàng</p>

@@ -48,8 +48,8 @@ class OrderCancel extends Notification
         return (new MailMessage)
             ->greeting('Chào '.$this->customer->name.' !')
             ->line('Đơn hàng của bạn đã đc hủy ')
-            ->line('Mong bạn vẫn tiếp tục mua hàng và ủng hộ shop')
-            ->line('Combine Shop!');
+            ->line('Mong bạn vẫn tiếp tục mua hàng và ủng hộ Shop')
+            ->line('Bé Yêu Shop!');
     }
 
     /**

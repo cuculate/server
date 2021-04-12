@@ -1,4 +1,4 @@
-<div id="processing" class="container tab-pane fade"><br>
+<div id="processing" class="tab-content-item"><br>
     <h3>Chuẩn bị</h3>
     <table class="table">
         <thead>

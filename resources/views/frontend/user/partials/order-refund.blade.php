@@ -1,4 +1,4 @@
-<div id="refund" class="container tab-pane fade"><br>
+<div id="refund" class="tab-content-item"><br>
     <h3>Trả hàng</h3>
     <table class="table">
         <thead>

@@ -51,8 +51,8 @@ class OrderStatus extends Notification
             ->greeting('Chào '.$this->customer->name.' !')
             ->line('Đơn hàng số ' . $this->order->id . ' đang được ' . getNameStatusEmail($this->order->status))
             ->action('Bấm vào để xem đơn hàng', url(route('order-show', $this->order->id)))
-            ->line('Cám ơn bạn đã mua sản phẩm của shop')
-            ->line('Combine Shop!');
+            ->line('Cám ơn bạn đã đặt hàng sản phẩm của shop')
+            ->line('Bé Yêu Shop!');
     }
 
     /**

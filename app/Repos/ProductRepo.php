@@ -131,10 +131,10 @@ class ProductRepo extends BaseRepo
     {
         $query = $this->query()->where(Product::$_status, Config::ACTIVE);
 
-        $keyword = request('keyword') ?? '';
-        $category = request()->has('category') ? explode(',', request('category')) : '';
-        $brand = request()->has('brand') ? explode(',', request('brand')) : '';
-        $age = request()->has('age') ? explode(',', request('age')) : '';
+        $keyword = request('search') ?? '';
+        $category = request()->has('product-cate') ? explode(',', request('product-cate')) : '';
+        $brand = request()->has('brands') ? explode(',', request('brands')) : '';
+        $age = request()->has('ages') ? explode(',', request('ages')) : '';
 
         $query = $query->when(!empty($keyword), function (Builder $b) use ($keyword) {
             return $b->where(function (Builder $q) use ($keyword) {
@@ -142,12 +142,18 @@ class ProductRepo extends BaseRepo
             });
         });
 
+
         $query = $query->when(!empty($category), function (Builder $b) use ($category) {
-            $categoryIds = Category::where('parent_id', $category)
-                ->pluck('id')
-                ->push($category)
-                ->all();
-            return $b->whereIn(Product::$_categoryID, $categoryIds);
+            if ($category[0] > 0) {
+                $categoryIds = Category::where('parent_id', $category)
+                    ->pluck('id')
+                    ->push($category)
+                    ->all();
+                return $b->whereIn(Product::$_categoryID, $categoryIds);
+            } else {
+
+                return $b;
+            }
         });
 
         $query = $query->when(!empty($brand), function (Builder $b) use ($brand) {
@@ -158,7 +164,7 @@ class ProductRepo extends BaseRepo
             return $b->whereIn(Product::$_ageID, $age);
         });
 
-        return $this->pagination($query);
+        return $this->pagination($query,15);
     }
 
     public function findNotSold($id)
@@ -167,5 +173,28 @@ class ProductRepo extends BaseRepo
             ->where(Product::$_status, Config::ACTIVE)
             ->where(Product::$_stocked, '>', 0)
             ->first();
+    }
+
+    public function random($number)
+    {
+        return $this->query()
+            ->where(Product::$_status, Config::ACTIVE)
+            ->inRandomOrder()
+            ->limit($number)
+            ->get();
+    }
+
+    public function relatedProducts($category, $brand, $age)
+    {
+        return $this->query()
+            ->where(Product::$_status, Config::ACTIVE)
+            ->where(function($query) use ($category, $brand, $age){
+                $query->orWhere(Product::$_categoryID, $category)
+                    ->orWhere(Product::$_brandID, $brand)
+                    ->orWhere(Product::$_ageID, $age);
+            })
+            ->inRandomOrder()
+            ->limit(15)
+            ->get();
     }
 }

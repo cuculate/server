@@ -16,32 +16,23 @@ use Support\Http\Controllers\BaseController;
 
 class AuthController extends BaseController
 {
-    private $area, $category, $customer, $admin, $brand, $age;
+    private $area, $customer, $admin;
 
     public function __construct(
         AreaRepo $area,
         CustomerRepo $customer,
-        AdminRepo $admin,
-        BrandRepo $brand,
-        AgeRepo $age,
-        CategoryRepo $category
+        AdminRepo $admin
     ) {
         parent::__construct();
 
         $this->area = $area;
         $this->customer = $customer;
         $this->admin = $admin;
-        $this->brand = $brand;
-        $this->age = $age;
-        $this->category = $category;
     }
 
     public function Login()
     {
-        $categories = $this->category->getSelectParent();
-        $brands = $this->brand->getSelectBrand();
-        $ages = $this->age->getSelectAge();
-        return view('frontend.login', compact('categories', 'brands', 'ages'));
+        return view('frontend.login');
     }
 
     public function Logout()
@@ -77,12 +68,9 @@ class AuthController extends BaseController
     public function Register()
     {
         try {
-            $categories = $this->category->getSelectParent();
-            $brands = $this->brand->getSelectBrand();
-            $ages = $this->age->getSelectAge();
             $areas = $this->area->getSelectArea();
 
-            return view('frontend.register', compact('areas','categories', 'brands', 'ages'));
+            return view('frontend.register', compact( 'areas'));
         } catch (\Exception $ex) {
             return abort(500);
         }

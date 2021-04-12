@@ -12,33 +12,24 @@ use Support\Http\Controllers\BaseController;
 class ContactController extends BaseController
 {
     private $contact;
-    private $brand;
-    private $age;
-    private $category;
 
-    public function __construct(ContactRepo $contact,
-                                BrandRepo $brand,
-                                AgeRepo $age,
-                                CategoryRepo $category)
+    public function __construct(ContactRepo $contact)
     {
         parent::__construct();
 
         $this->contact = $contact;
-        $this->brand = $brand;
-        $this->category = $category;
-         $this->age = $age;
     }
 
-    public function Contact(StoreRequest $request)
+    public function Contact()
+    {
+        return view('frontend.contact.contact');
+    }
+
+    public function SendContact(StoreRequest $request)
     {
         try {
-            $categories = $this->category->getSelectParent();
-            $brands = $this->brand->getSelectBrand();
-            $ages = $this->age->getSelectAge();
             $this->contact->create($request->data());
-            return view('frontend.contact.contact', compact('categories',
-                'brands',
-                'ages'));
+            return view('frontend.contact.thankyou');
         } catch (\Exception $ex) {
             return abort(500);
         }

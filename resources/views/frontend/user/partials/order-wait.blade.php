@@ -1,4 +1,4 @@
-<div id="waiting" class="container tab-pane active"><br>
+<div id="waiting" class="tab-content-item active"><br>
     <h3>Chờ duyệt</h3>
     <table class="table">
         <thead>

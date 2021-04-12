@@ -1,4 +1,4 @@
-<div id="transporting" class="container tab-pane fade"><br>
+<div id="transporting" class="tab-content-item"><br>
     <h3>Vận chuyển</h3>
     <table class="table">
         <thead>

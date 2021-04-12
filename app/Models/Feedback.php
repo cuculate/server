@@ -24,6 +24,7 @@ class Feedback extends BaseModel
         'created_at',
         'content',
         'status',
+        'star',
     ];
 
     public function product()

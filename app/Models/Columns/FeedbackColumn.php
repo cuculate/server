@@ -12,5 +12,6 @@ trait FeedbackColumn
     public static $_created = 'feedback.created_at';
     public static $_content = 'feedback.content';
     public static $_status = 'feedback.status';
+    public static $_star = 'feedback.star';
 
 }

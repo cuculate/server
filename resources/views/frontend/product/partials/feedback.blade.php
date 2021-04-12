@@ -1,35 +1,40 @@
 <div class="feedback">
-    <div class="name">Bình luận & nhận xét về sản phẩm</div>
-    <div class="border" style="min-height: 100px">
-        @foreach($feedbacks as $feedback)
-            @if($feedback->status !== 3)
-                <div class="m-3">
-                    <div class="font-weight-bold">{{ $feedback->name }} </div>
-                    <div>Tiêu đề: {{ $feedback->title }}:</div>
-                    <div class="ml-2"> Nội dung: {{ $feedback->content }}</div>
-                    <div class="mt-2">{{ $feedback->created_at }}</div>
-                    <hr>
-                </div>
-            @endif
-        @endforeach
-    </div>
-    <button onclick="show()" class="btn btn-primary mt-4">Bình luận ngay</button>
-    <div class="feedback m-3" id="comment" style="display: none">
-        <form name="comment" method="post" action="{{ route('feedback', $product->id) }}" class="feedback-form" autocomplete="off">
-            @csrf
-            <div class="feedback-form-group">
-                <label for="name" class="contact-form-label">Họ và tên</label>
-                <input id="name" type="text" name="name" class="feedback-form-input" required/>
-            </div>
-            <div class="feedback-form-group">
-                <label for="title" class="contact-form-label">Tiêu đề</label>
-                <input id="title" type="text" name="title" class="feedback-form-input" required/>
-            </div>
-            <div class="feedback-form-group">
-                <label for="content" class="contact-form-label">Ý kiến của bạn về sản phẩm</label>
-                <textarea name="content" id="content" class="feedback-form-area" placeholder="Cảm nhận của bạn về sản phẩm"></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Bình luận</button>
-        </form>
-    </div>
+    <form name="comment" method="post" action="{{ route('feedback', $product->id) }}" autocomplete="off" id="commentform" class="comment-form"
+          novalidate="">
+        @csrf
+        <div class="comment-form-rating">
+            <span>Your rating</span>
+            <p class="stars">
+
+                <label for="rated-1"></label>
+                <input type="radio" id="rated-1" name="star" value="1">
+                <label for="rated-2"></label>
+                <input type="radio" id="rated-2" name="star" value="2">
+                <label for="rated-3"></label>
+                <input type="radio" id="rated-3" name="star" value="3">
+                <label for="rated-4"></label>
+                <input type="radio" id="rated-4" name="star" value="4">
+                <label for="rated-5"></label>
+                <input type="radio" id="rated-5" name="star" value="5"
+                       checked="checked">
+            </p>
+        </div>
+        <p class="comment-form-author">
+            <label for="name">Họ và tên <span class="required">*</span></label>
+            <input id="name" name="name" type="text" value="" required>
+        </p>
+        <p class="comment-form-author">
+            <label for="title">Tiêu đề <span class="required">*</span></label>
+            <input id="title" name="title" type="text" value="" required>
+        </p>
+        <p class="comment-form-comment">
+            <label for="comment">Your review <span class="required">*</span>
+            </label>
+            <textarea id="comment" name="content" cols="45" rows="8"></textarea>
+        </p>
+        <p class="form-submit">
+            <input name="submit" type="submit" id="submit" class="submit"
+                   value="Submit">
+        </p>
+    </form>
 </div>

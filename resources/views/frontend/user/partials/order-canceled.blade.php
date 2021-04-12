@@ -1,5 +1,5 @@
-<div id="canceled" class="container tab-pane fade"><br>
-    <h3>Trả hàng</h3>
+<div id="canceled" class="tab-content-item"><br>
+    <h3>HỦy đơn</h3>
     <table class="table">
         <thead>
         <tr>

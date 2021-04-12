@@ -9,6 +9,9 @@ class Config
     const DELETED = 3;
     const MALE = 4;
     const FEMALE = 5;
+    const NEW = 6;
+    const HOT = 7;
+    const SALE = 8;
     const TOKEN_ALIVE = 30; //minutes
 
     const DATE_DEFAULT = 'Y-m-d';

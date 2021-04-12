@@ -40,28 +40,26 @@ class ProductController extends BaseController
 
     public function Search()
     {
-        try {
-            $products = $this->product->homeSearch();
-            $categories = $this->category->getSelectParent();
-            $brands = $this->brand->getSelectBrand();
-            $ages = $this->age->getSelectAge();
-            return view('frontend.product.search', compact('products',
-                'categories',
-                'brands',
-                'ages'));
-        } catch (\Exception $ex) {
-            return abort(500);
-        }
+        $products = $this->product->homeSearch();
+        $productRandoms = $this->product->random(4);
+        $categories = $this->category->getSelectParent();
+        $brands = $this->brand->getSelectBrand();
+        $ages = $this->age->getSelectAge();
+        return view('frontend.product.search', compact('products', 'productRandoms',
+            'categories',
+            'brands',
+            'ages'));
     }
 
     public function HotProduct()
     {
         try {
             $products = $this->product->ProductHot();
+            $productRandoms = $this->product->random(4);
             $categories = $this->category->getSelectParent();
             $brands = $this->brand->getSelectBrand();
             $ages = $this->age->getSelectAge();
-            return view('frontend.product.hot', compact('products',
+            return view('frontend.product.hot', compact('products', 'productRandoms',
                 'categories',
                 'brands',
                 'ages'));
@@ -74,10 +72,11 @@ class ProductController extends BaseController
     {
         try {
             $products = $this->product->ProductNew();
+            $productRandoms = $this->product->random(4);
             $categories = $this->category->getSelectParent();
             $brands = $this->brand->getSelectBrand();
             $ages = $this->age->getSelectAge();
-            return view('frontend.product.new', compact('products',
+            return view('frontend.product.new', compact('products','productRandoms',
                 'categories',
                 'brands',
                 'ages'));
@@ -90,10 +89,11 @@ class ProductController extends BaseController
     {
         try {
             $products = $this->product->ProductSale();
+            $productRandoms = $this->product->random(4);
             $categories = $this->category->getSelectParent();
             $brands = $this->brand->getSelectBrand();
             $ages = $this->age->getSelectAge();
-            return view('frontend.product.sale', compact('products',
+            return view('frontend.product.sale', compact('products','productRandoms',
                 'categories',
                 'brands',
                 'ages'));
@@ -113,12 +113,14 @@ class ProductController extends BaseController
             $brands = $this->brand->getSelectBrand();
             $ages = $this->age->getSelectAge();
             $product = $this->product->findActive($id);
-            $productRandoms = $this->product->getSelectProduct()->random(12);
+            $productRandoms = $this->product->random(4);
             $category = $product->category;
             $brand = $product->brand;
             $age = $product->age;
             $feedbacks = $product->feedback;
+            $avgStar = $this->avgStar($feedbacks);
             $areas = $this->area->getSelectArea();
+            $relatedProducts = $this->product->relatedProducts($product->category_id, $product->brand_id, $product->age_id);
             return view('frontend.product.show', compact('product',
                 'productRandoms',
                 'category',
@@ -128,9 +130,24 @@ class ProductController extends BaseController
                 'areas',
                 'categories',
                 'brands',
+                'avgStar',
+                'relatedProducts',
                 'ages'));
         } catch (\Exception $ex) {
             return abort(500);
         }
+    }
+
+    public function avgStar($feedbacks)
+    {
+        $sumStar = 0;
+        $count = count($feedbacks);
+        if ($count == 0) {
+            return 0;
+        }
+        foreach ($feedbacks as $feedback) {
+            $sumStar += $feedback->star;
+        }
+        return $sumStar / $count;
     }
 }
