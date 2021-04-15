@@ -2,10 +2,6 @@
 
 @section('title','Bé yêu')
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('./css/post.css') }}">
-@endsection
-
 @section('main')
     <main id="main" class="main-site">
 
