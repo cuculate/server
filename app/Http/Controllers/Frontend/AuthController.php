@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FrontEnd;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\Frontend\Auth\BaseRequest;
 use App\Http\Requests\Frontend\Customer\StoreRequest;
