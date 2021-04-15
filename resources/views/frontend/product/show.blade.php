@@ -3,9 +3,9 @@
 @section('title','Sản phẩm')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="css/product.css">
-    <link rel="stylesheet" type="text/css" href="css/feedback.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/product.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/feedback.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css') }}">
 @endsection
 
 @section('main')
@@ -30,7 +30,7 @@
                             <div class="product-gallery">
                                 <ul class="slides">
                                     <li data-thumb="images/sanpham/{{$product->image}}">
-                                        <img src="images/sanpham/{{$product->image}}" alt="{{ $product->name }}"/>
+                                        <img src="{{ asset('images/sanpham/' . $product->image) }}" alt="{{ $product->name }}"/>
                                     </li>
                                 </ul>
                             </div>
@@ -51,7 +51,7 @@
                                 </ul>
                             </div>
                             <div class="wrap-social">
-                                <a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
+                                <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
                             </div>
                             <div class="wrap-price"><span
                                     class="product-price">{{ number_format($product->price) }} VNĐ</span>
@@ -127,7 +127,7 @@
                                                     <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
                                                         id="li-comment-20">
                                                         <div id="comment-20" class="comment_container">
-                                                            <img alt="" src="assets/images/author-avata.jpg" height="80"
+                                                            <img alt="" src="{{ asset('assets/images/author-avata.jpg') }}" height="80"
                                                                  width="80">
                                                             <div class="comment-text">
                                                                 <div class="star-rating">

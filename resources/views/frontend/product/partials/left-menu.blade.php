@@ -65,7 +65,7 @@
                             <div class="thumbnnail">
                                 <a href="{{ route('show', $product->id) }}"
                                    title="{{ $product->name }}">
-                                    <figure><img src="images/sanpham/{{$product->image}}"
+                                    <figure><img src="{{ asset('images/sanpham/' . $product->image) }}"
                                                  alt="{{ $product->name }}"></figure>
                                 </a>
                             </div>

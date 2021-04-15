@@ -22,7 +22,7 @@
 
                     <div class="banner-shop">
                         <a href="#" class="banner-link">
-                            <figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
+                            <figure><img src="{{ asset('assets/images/shop-banner.jpg') }}" alt=""></figure>
                         </a>
                     </div>
 
@@ -30,37 +30,7 @@
 
                         <h1 class="shop-title">Đồ chơi</h1>
 
-                        <div class="wrap-right">
-
-                            <div class="sort-item orderby ">
-                                <select name="orderby" class="use-chosen">
-                                    <option value="menu_order" selected="selected">Default sorting</option>
-                                    <option value="popularity">Sort by popularity</option>
-                                    <option value="rating">Sort by average rating</option>
-                                    <option value="date">Sort by newness</option>
-                                    <option value="price">Sort by price: low to high</option>
-                                    <option value="price-desc">Sort by price: high to low</option>
-                                </select>
-                            </div>
-
-                            <div class="sort-item product-per-page">
-                                <select name="post-per-page" class="use-chosen">
-                                    <option value="12" selected="selected">12 per page</option>
-                                    <option value="16">16 per page</option>
-                                    <option value="18">18 per page</option>
-                                    <option value="21">21 per page</option>
-                                    <option value="24">24 per page</option>
-                                    <option value="30">30 per page</option>
-                                    <option value="32">32 per page</option>
-                                </select>
-                            </div>
-
-                            <div class="change-display-mode">
-                                <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                                <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                            </div>
-
-                        </div>
+                        @include('frontend.product.partials.sort')
 
                     </div><!--end wrap shop control-->
 
@@ -72,7 +42,7 @@
                                     <div class="product product-style-3 equal-elem ">
                                         <div class="product-thumnail">
                                             <a href="{{ route('show', $product->id) }}" title="{{ $product->name }}">
-                                                <figure><img src="images/sanpham/{{$product->image}}"
+                                                <figure><img src="{{ asset('images/sanpham/'. $product->image) }}"
                                                              alt="{{ $product->name }}"></figure>
                                             </a>
                                             <div class="group-flash">
@@ -105,7 +75,7 @@
                                                    onclick="AddCart({{ $product->id }})">Cho
                                                     Vào Giỏ</a>
                                             @else<img class="btn add-to-cart"
-                                                      src="images/site/out-of-stock.png"
+                                                      src="{{ asset('images/site/out-of-stock.png') }}"
                                                       style="width: 100%;margin-top: 5%;display: block;;"
                                                       alt="Out of Stock">
 

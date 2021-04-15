@@ -21,7 +21,7 @@
                         <div class="product product-style-2 equal-elem ">
                             <div class="product-thumnail">
                                 <a href="{{ route('show', $sale->id) }}" title="{{ $sale->name }}">
-                                    <figure><img src="images/sanpham/{{$sale->image}}" width="800"
+                                    <figure><img src="{{ asset('images/sanpham/' . $sale->image) }}" width="800"
                                                  height="800"
                                                  alt="{{ $sale->name }}"></figure>
                                 </a>
@@ -42,7 +42,7 @@
                                                    value="Cho vào giỏ">
                                         </div>
                                     @else
-                                        <img class="function-link" src="images/site/out-of-stock.png"
+                                        <img class="function-link" src="{{ asset('images/site/out-of-stock.png')}}"
                                              style="height: 20px;"
                                              alt="Out of Stock">
                                     @endif
@@ -88,7 +88,7 @@
                                         <div class="product product-style-2 equal-elem ">
                                             <div class="product-thumnail">
                                                 <a href="{{ route('show', $hot->id) }}" title="{{ $hot->name }}">
-                                                    <figure><img src="images/sanpham/{{$hot->image}}" width="800"
+                                                    <figure><img src="{{ asset('images/sanpham/' . $hot->image) }}" width="800"
                                                                  height="800"
                                                                  alt="{{ $hot->name }}"></figure>
                                                 </a>
@@ -109,7 +109,7 @@
                                                                    value="Cho vào giỏ">
                                                         </div>
                                                     @else
-                                                        <img class="function-link" src="images/site/out-of-stock.png"
+                                                        <img class="function-link" src="{{ asset('images/site/out-of-stock.png')}}"
                                                              style="height: 20px;"
                                                              alt="Out of Stock">
                                                     @endif
@@ -162,7 +162,7 @@
                                         <div class="product product-style-2 equal-elem ">
                                             <div class="product-thumnail">
                                                 <a href="{{ route('show', $new->id) }}" title="{{ $new->name }}">
-                                                    <figure><img src="images/sanpham/{{$new->image}}" width="800"
+                                                    <figure><img src="{{ asset('images/sanpham/' . $new->image) }}" width="800"
                                                                  height="800"
                                                                  alt="{{ $new->name }}"></figure>
                                                 </a>
@@ -183,7 +183,7 @@
                                                                    value="Cho vào giỏ">
                                                         </div>
                                                     @else
-                                                        <img class="function-link" src="images/site/out-of-stock.png"
+                                                        <img class="function-link" src="{{ asset('images/site/out-of-stock.png')}}"
                                                              style="height: 20px;"
                                                              alt="Out of Stock">
                                                     @endif
@@ -245,7 +245,7 @@
                                                 <div class="product-thumnail">
                                                     <a href="{{ route('show', $product->id) }}"
                                                        title="{{ $product->name }}">
-                                                        <figure><img src="images/sanpham/{{$product->image}}"
+                                                        <figure><img src="{{ asset('images/sanpham/' . $product->image) }}"
                                                                      width="800"
                                                                      height="800" alt="{{ $product->name }}">
                                                         </figure>
@@ -268,7 +268,7 @@
                                                             </div>
                                                         @else
                                                             <img class="function-link"
-                                                                 src="images/site/out-of-stock.png"
+                                                                 src="{{ asset('images/site/out-of-stock.png')}}"
                                                                  style="height: 20px;"
                                                                  alt="Out of Stock">
                                                         @endif
@@ -300,7 +300,7 @@
                                                         <div class="product-thumnail">
                                                             <a href="{{ route('show', $product->id) }}"
                                                                title="{{ $product->name }}">
-                                                                <figure><img src="images/sanpham/{{$product->image}}"
+                                                                <figure><img src="{{ asset('images/sanpham/' . $product->image) }}"
                                                                              width="800"
                                                                              height="800" alt="{{ $product->name }}">
                                                                 </figure>
@@ -323,7 +323,7 @@
                                                                     </div>
                                                                 @else
                                                                     <img class="function-link"
-                                                                         src="images/site/out-of-stock.png"
+                                                                         src="{{ asset('images/site/out-of-stock.png')}}"
                                                                          style="height: 20px;"
                                                                          alt="Out of Stock">
                                                                 @endif
@@ -388,7 +388,7 @@
                                                 <div class="product-thumnail">
                                                     <a href="{{ route('show', $product->id) }}"
                                                        title="{{ $product->name }}">
-                                                        <figure><img src="images/sanpham/{{$product->image}}"
+                                                        <figure><img src="{{ asset('images/sanpham/' . $product->image) }}"
                                                                      width="800"
                                                                      height="800" alt="{{ $product->name }}">
                                                         </figure>
@@ -411,7 +411,7 @@
                                                             </div>
                                                         @else
                                                             <img class="function-link"
-                                                                 src="images/site/out-of-stock.png"
+                                                                 src="{{ asset('images/site/out-of-stock.png')}}"
                                                                  style="height: 20px;"
                                                                  alt="Out of Stock">
                                                         @endif
@@ -474,7 +474,7 @@
                                                 <div class="product-thumnail">
                                                     <a href="{{ route('show', $product->id) }}"
                                                        title="{{ $product->name }}">
-                                                        <figure><img src="images/sanpham/{{$product->image}}"
+                                                        <figure><img src="{{ asset('images/sanpham/' . $product->image) }}"
                                                                      width="800"
                                                                      height="800" alt="{{ $product->name }}">
                                                         </figure>
@@ -497,7 +497,7 @@
                                                             </div>
                                                         @else
                                                             <img class="function-link"
-                                                                 src="images/site/out-of-stock.png"
+                                                                 src="{{ asset('images/site/out-of-stock.png')}}"
                                                                  style="height: 20px;"
                                                                  alt="Out of Stock">
                                                         @endif
